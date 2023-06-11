@@ -1,8 +1,8 @@
 <template>
-    <div class="root">
-        <div class="pic"></div>
-        <div class="name">{{ cocktail.strDrink }}</div>
-    </div>
+<div class="root">
+    <div class="pic"></div>
+    <div class="name">{{ cocktail.strDrink }}</div>
+</div>
 
 </template>
 
@@ -15,6 +15,5 @@ const props = defineProps({
 })
 </script>
 
-<style lang="sass" scoped>
-@import '../assets/styles/main'
-</style>
+<style lang ="sass" scoped>
+@import '../assets/styles/main'</style>

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import AppLayout from '../components/AppLayout.vue';
-import CocktailThumb from '../components/CocktailThumb.vue'
+import CocktailThumb from '../components/CocktailThumb.vue';
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia'
 
@@ -43,7 +43,9 @@ function getCocktails() {
          <div v-else class="info">
             <div class="title">COCKTAILS WITH {{ ingredient }}</div>
             <div class="line"></div>
-            <div class="cocktails"></div>
+            <div class="cocktails">
+                <CocktailThumb v-for="cocktail in cocktails" :key="cocktail.idDrink" :cocktail="cocktail" />
+            </div>
          </div>      
     </div>
 

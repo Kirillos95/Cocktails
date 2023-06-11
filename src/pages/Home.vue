@@ -74,4 +74,13 @@ function getCocktails() {
     color: $textMuted
     margin: 0 auto
     margin-bottom: 60px
+
+.cocktails
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 60px
+    flex-wrap: wrap    
+    max-height: 400px
+    overflow-y: auto
 </style>

@@ -16,7 +16,8 @@
 
     for (let i = 1; i <= 15; i++) {
       if (!cocktail.value[`strIngredient${i}`]) break
-      const ingredient = {}
+
+    const ingredient = {}
         ingredient.name = cocktail.value[`strIngredient${i}`]
         ingredient.measure = cocktail.value[`strMeasure${i}`]
         ingredients.push(ingredient)   

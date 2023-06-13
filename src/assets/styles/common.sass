@@ -32,5 +32,37 @@
 .info
     padding: 80px 0
     text-align: center    
-        
+
+.list
+    width: 560px
+    padding: 50px 80px 80px 
+    text-align: left
+
+.list-item
+      position: relative
+      margin-bottom: 20px
+      font-weight: 400
+      font-size: 18px
+      line-height: 27px
+      letter-spacing: 0.1em
+      padding-left: 30px
+
+.list-item::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+            width: 17px
+            height: 17px
+            background: url('src/assets/img/heart.svg') no-repeat 50%
+
+.instructions
+    width: 516px
+    margin: 0 auto
+    font-size: 20px
+    line-height: 30px
+    color: #D3D3D3
+    letter-spacing: 0.1em
+
 

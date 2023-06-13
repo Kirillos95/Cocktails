@@ -38,13 +38,16 @@
             <div class="title">{{ cocktail.strDrink }}</div>
             <div class="line"></div>
             <div class="list">
-                <div v-for="(item, key) in ingredients" :key="key" class="list-item">
+                <div class="list-item" v-for="(item, key) in ingredients" :key="key" >
                 {{ item.name }}
                 <template v-if="item.measure">
                     |
                 {{ item.measure }}
                 </template>
                 </div>
+            </div>
+            <div class="instructions">
+                {{ cocktail.strInstructions }}
             </div>
         </div>
     </div>

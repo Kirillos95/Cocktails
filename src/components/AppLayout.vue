@@ -1,20 +1,36 @@
 <script setup>
+import { Back } from '@element-plus/icons-vue'
 const props = defineProps({
     imgUrl: {
         type: String,
         required: true,
+    },
+    backFuncBtn: {
+        type: Function,
+        required: true
+    },
+    isBackButtonVisible: {
+        type: Boolean,
+        default: true
     }
 })
-
 </script>
-
 <template>
 <div class="root">
     <div :style="`background-image: url(${imgUrl})`" class="img">
-
     </div>
     <div class="main">
-        <el-button class="btn">Get random cocktail</el-button>
+        <div class="btns">
+            <el-button
+            v-if="isBackButtonVisible"
+             class="back_btn"
+             type="primary"
+             :icon="Back"
+             circle
+             @click="backFuncBtn"
+             />
+            <el-button class="btn">Get random cocktail</el-button>
+        </div>
         <slot></slot>
     </div>
 </div>
@@ -46,10 +62,22 @@ const props = defineProps({
     font-family: 'Raleway', 'Arial', sans-serif
     transition-duration: 0.4s
     cursor: pointer
-.btn:hover
+.btn:hover,
+.btn:active
   background-color: darken($accent, 15%)
   border-color: darken($accent, 10%)
   color: white
   transform: scale(1.1)
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3)
+
+.btns
+    display: flex
+    justify-content: space-between
+    align-items: center   
+.back_btn
+    background-color: transparent
+    border-color: #fff
+
+.back_btn:hover
+    border-color: $accent
 </style>

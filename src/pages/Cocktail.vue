@@ -1,11 +1,12 @@
 <script setup>
  import axios from 'axios';
  import {ref, computed} from 'vue';
- import { useRoute } from 'vue-router';
+ import { useRoute, useRouter} from 'vue-router';
  import {COCKTAIL_BY_ID} from '@/constans';
  import AppLayout from '../components/AppLayout.vue';
 
  const route = useRoute();
+ const router = useRouter();
 
  const cocktail = ref(null);
  const cocktailId = computed(() => route.path.split('/').pop());
@@ -27,12 +28,17 @@
     const data = await axios.get(`${COCKTAIL_BY_ID}${cocktailId.value}`)
     cocktail.value = data?.data?.drinks[0]    
  }
+ function goBack() {
+    router.go(-1)
+ }
+
  getCocktail()
+
 </script>
 
 <template>
     <div class="wrap">
-        <AppLayout :imgUrl="cocktail.strDrinkThumb">
+        <AppLayout :imgUrl="cocktail.strDrinkThumb" :backFuncBtn="goBack">
    <div class="wrapper">
         <div class="info">
             <div class="title">{{ cocktail.strDrink }}</div>

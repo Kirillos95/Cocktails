@@ -3,16 +3,11 @@
  import {ref, computed} from 'vue';
  import { Swiper, SwiperSlide } from 'swiper/vue';
  import 'swiper/css';
- import { useRoute, useRouter} from 'vue-router';
  import {COCKTAIL_RANDOM} from '@/constans';
  import {INGREDIENT_PIC} from '@/constans'
  import AppLayout from '../components/AppLayout.vue';
 
- const route = useRoute();
- const router = useRouter();
-
  const cocktail = ref(null);
- const cocktailId = computed(() => route.path.split('/').pop());
 
  const ingredients = computed(()=>{
     const ingredients= []
@@ -30,17 +25,14 @@
     const data = await axios.get(COCKTAIL_RANDOM)
     cocktail.value = data?.data?.drinks[0]    
  }
- function goBack() {
-    router.go(-1)
- }
-
+ 
  getCocktail()
 
 </script>
 
 <template>
     <div class="wrap">
-        <AppLayout :imgUrl="cocktail.strDrinkThumb" :backFuncBtn="goBack">
+        <AppLayout :imgUrl="cocktail.strDrinkThumb">
    <div class="wrapper">
         <div class="info">
             <div class="title">{{ cocktail.strDrink }}</div>
@@ -78,5 +70,5 @@
 
 .name
     margin-top: 20px
-        
+
 </style>
